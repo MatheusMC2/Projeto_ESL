@@ -2,7 +2,7 @@ import requests
 import base64
 import config
 import mysql.connector
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def conexao_banco(x):
     mydb = mysql.connector.connect(
@@ -10,6 +10,25 @@ def conexao_banco(x):
             user = config.DATABASE_USERNAME,
             password = config.DATABASE_PASSWORD,
             database = config.DATABASE_DATABASE
+            )
+    cursor = mydb.cursor()
+    if 'SELECT' in x:
+        cursor.execute(x)
+        result = cursor.fetchall()
+        mydb.close()
+        return result
+    else:
+        cursor.execute(x)
+        mydb.commit()
+        mydb.close()
+        return
+
+def conexao_banco_carrefour(x):
+    mydb = mysql.connector.connect(
+            host = config.DATABASE_HOST,
+            user = config.DATABASE_USERNAME,
+            password = config.DATABASE_PASSWORD,
+            database = config.DATABASE_DATABASE2
             )
     cursor = mydb.cursor()
     if 'SELECT' in x:
@@ -38,8 +57,8 @@ def send_pdf_carrefour():
     print('---------------- Enviando Notas da Carrefour ----------------')
 
     # SELECT para lista os nomes dos arquivos
-    query = "SELECT Filename FROM python_carrefour_auto WHERE Renamed IS NULL AND FileType = 'NFPDF' AND Renamed IS NULL;" 
-    result = conexao_banco(query)
+    query = "SELECT Filename FROM python_carrefour_auto WHERE Renamed IS NULL AND FileType = 'NFPDF';" 
+    result = conexao_banco_carrefour(query)
 
     url_api = config.URL_BASE_API + config.URL_DANF_API
 
@@ -64,7 +83,7 @@ def send_pdf_carrefour():
             if request.status_code == 200:
                 print(f"PDF em base64 enviado. Nota: {new_file_name}")
                 query2 = "UPDATE python_carrefour_auto SET Renamed_Data = '"+ datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "', Renamed = '"+ new_file_name +"'  WHERE Filename = '" + file_name + "';" 
-                conexao_banco(query2)
+                conexao_banco_carrefour(query2)
             else:
                 print(f'Falha ao enviar o PDF. Código: {request.status_code}')
 
@@ -313,7 +332,7 @@ def send_pdf_gazin():
     print('---------------- Enviando Notas da Gazin  ----------------')
 
 
-    query = "SELECT chave_notas FROM python_notas_gazin WHERE ESL_Status IS NULL;"
+    query = "SELECT file_name FROM python_notas_gazin WHERE ESL_Status IS NULL;"
     file_list = conexao_banco(query)
 
     url_api = config.URL_BASE_API + config.URL_DANF_API
@@ -335,7 +354,7 @@ def send_pdf_gazin():
             result = requests.post(url_api, json= body, headers= headers)
             if result.status_code == 200:
                 print(f"PDF em base64 enviado. Nota: {name_api}")
-                query2 = "UPDATE python_notas_gazin SET ESL_Status = '"+ datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "' WHERE chave_notas = '" + file_name + "';"
+                query2 = "UPDATE python_notas_gazin SET ESL_Status = '"+ datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "' WHERE file_name = '" + file_name + "';"
                 conexao_banco(query2)
             else:
                 print(f'Falha ao enviar o PDF. Código: {result.status_code}')

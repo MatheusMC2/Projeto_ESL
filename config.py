@@ -19,6 +19,8 @@ PATH_DANF_MVX = '/public_html/CLIENTES/Mvx/EDI/NFPDF_PY/'
 PATH_TO_MADEIRA = '/public_html/CLIENTES/MadeiraMadeira/EDI/NFPDF_PY/'
 PATH_DANF_ENGAGE = '/public_html/CLIENTES/Engage/EDI/NFPDF_PY/'
 PATH_DANF_GAZIN = '/public_html/CLIENTES/Gazin/EDI/NFPDF_PY/'
+PATH_DANF_GAZIN_CARTAS = '/public_html/CLIENTES/Gazin/EDI/Cartas_Correcao/'
+
 
 PATH_TO_SAVE_CARREFOUR = '/public_html/modulos/NFPDF_Carrefour/'
 PATH_TO_SAVE_VIAVAREJO = '/public_html/modulos/NFPDF_Viavarejo/'
