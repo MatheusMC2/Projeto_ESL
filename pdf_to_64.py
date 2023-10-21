@@ -67,7 +67,7 @@ def send_pdf_carrefour():
     for file_name in result:
         file_name = file_name[0]  #Nome do arquivo na lista
         new_file_name = file_name.split('-')[1][3:]  #Formata o nome do arquivo para ter apenas a chave NFe
-        url_pdf = config.URL_CONECTA_PDF + config.URL_PDF_CARREFOR + file_name  #URl para baixar os PDFs
+        url_pdf = config.URL_CONECTA_PDF + config.URL_PDF_CARREFOR + new_file_name + '.pdf'  #URl para baixar os PDFs
         base64_pdf = pdf_to_base64(url_pdf)
 
         #Envia a Base64 do PDF para API
@@ -400,3 +400,4 @@ def execute_padf_to_64():
     send_pdf_engage()
     send_pdf_gazin()
     send_pdf_mvx()
+send_pdf_carrefour()
