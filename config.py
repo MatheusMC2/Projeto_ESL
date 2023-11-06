@@ -1,13 +1,13 @@
 
 #FTP CONFIGS
 #Inectar
-HOSTNAME_INECTAR = 'ftp.inectar.com.br'
-USERNAME_INECTAR = 'itconecta@inectar.com.br'
-PASSWORD_INECTAR = '@!Dp392781#'
+HOSTNAME_INECTAR = 'ftp.devinectar.com.br'
+USERNAME_INECTAR = 'admin_devftp'
+PASSWORD_INECTAR = 'C0n3ct@:iN3ct4r'
 #Conecta
 HOSTNAME_CONECTA = 'ftp.conectacargo4.hospedagemdesites.ws'
 USERNAME_CONECTA = 'conectacargo4'
-PASSWORD_CONECTA = 'Conect#392781@'
+PASSWORD_CONECTA = 'Conect@392781*'
 
 #path
 PATH_DANF_CARREFOUR = '/public_html/CLIENTES/Carrefour/EDI/NFPDF_PY/'
@@ -20,7 +20,7 @@ PATH_TO_MADEIRA = '/public_html/CLIENTES/MadeiraMadeira/EDI/NFPDF_PY/'
 PATH_DANF_ENGAGE = '/public_html/CLIENTES/Engage/EDI/NFPDF_PY/'
 PATH_DANF_GAZIN = '/public_html/CLIENTES/Gazin/EDI/NFPDF_PY/'
 PATH_DANF_GAZIN_CARTAS = '/public_html/CLIENTES/Gazin/EDI/Cartas_Correcao/'
-PATH_TRIMESTRAL = '/public_html/Protocolos/Ocorrencia_Trimestral/'
+PATH_TRIMESTRAL = '/rpa/arquivos/protocolos/Ocorrencia_Trimestral/'
 
 
 PATH_TO_SAVE_CARREFOUR = '/public_html/modulos/NFPDF_Carrefour/'
