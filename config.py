@@ -5,26 +5,22 @@ HOSTNAME_INECTAR = 'ftp.devinectar.com.br'
 USERNAME_INECTAR = 'admin_devftp'
 PASSWORD_INECTAR = 'C0n3ct@:iN3ct4r'
 #Conecta
-HOSTNAME_CONECTA = 'ftp.conectacargo4.hospedagemdesites.ws'
-USERNAME_CONECTA = 'conectacargo4'
-PASSWORD_CONECTA = 'Conect@392781*'
+HOSTNAME_CONECTA = 'ftp.devinectar.com.br'
+USERNAME_CONECTA = 'admin_devftp'
+PASSWORD_CONECTA = 'C0n3ct@:iN3ct4r'
 
 #path
-PATH_DANF_CARREFOUR = '/public_html/CLIENTES/Carrefour/EDI/NFPDF_PY/'
-PATH_DANF_VIAVAREJO = '/public_html/CLIENTES/ViaVarejo/EDI/NFPDF_PY/'
-PATH_DANF_KABUM = '/public_html/CLIENTES/Kabum/EDI/NFPDF_PY/'
-PATH_DANF_MULTILASER = '/public_html/CLIENTES/Multilaser/EDI/NFPDF_PY/'
-PATH_DANF_MADESA = '/public_html/CLIENTES/Madesa/EDI/NFPDF_PY/'
-PATH_DANF_MVX = '/public_html/CLIENTES/Mvx/EDI/NFPDF_PY/'
-PATH_TO_MADEIRA = '/public_html/CLIENTES/MadeiraMadeira/EDI/NFPDF_PY/'
-PATH_DANF_ENGAGE = '/public_html/CLIENTES/Engage/EDI/NFPDF_PY/'
-PATH_DANF_GAZIN = '/public_html/CLIENTES/Gazin/EDI/NFPDF_PY/'
-PATH_DANF_GAZIN_CARTAS = '/public_html/CLIENTES/Gazin/EDI/Cartas_Correcao/'
+PATH_DANF_CARREFOUR = '/rpa/arquivos/nf_pdf/carrefour/'
+PATH_DANF_VIAVAREJO = '/rpa/arquivos/nf_pdf/viavarejo/'
+PATH_DANF_KABUM = '/rpa/arquivos/nf_pdf/kabum/'
+PATH_DANF_MULTILASER = '/rpa/arquivos/nf_pdf/multilaser/'
+PATH_DANF_MADESA = '/rpa/arquivos/nf_pdf/madesa/'
+PATH_DANF_MVX = '/rpa/arquivos/nf_pdf/mvx/'
+PATH_TO_MADEIRA = '/rpa/arquivos/nf_pdf/madeiraMadeira/'
+PATH_DANF_ENGAGE = '/rpa/arquivos/nf_pdf/engage/'
+PATH_DANF_GAZIN = '/rpa/arquivos/nf_pdf/gazin/'
+PATH_DANF_MAGAZINE = '/rpa/arquivos/nf_pdf/magazine/'
 PATH_TRIMESTRAL = '/rpa/arquivos/protocolos/Ocorrencia_Trimestral/'
-
-
-PATH_TO_SAVE_CARREFOUR = '/public_html/modulos/NFPDF_Carrefour/'
-PATH_TO_SAVE_VIAVAREJO = '/public_html/modulos/NFPDF_Viavarejo/'
 
 #DATABASES CONFIGS
 DATABASE_HOST = '162.240.214.17'
@@ -33,16 +29,17 @@ DATABASE_PASSWORD = 'C0n3ct@://iN3ct4r'
 DATABASE_DATABASE = 'ccdbloghomolog'
 DATABASE_DATABASE2 = 'ccdblog'
 
-URL_CONECTA_PDF = 'https://conectacargo.com.br'
-URL_PDF_CARREFOR = '/CLIENTES/Carrefour/EDI/NFPDF_PY/'
-URL_PDF_VIAVAREJO = '/CLIENTES/ViaVarejo/EDI/NFPDF_PY/'
-URL_PDF_KABUM = '/CLIENTES/Kabum/EDI/NFPDF_PY/'
-URL_PDF_MULTILASER = '/CLIENTES/Multilaser/EDI/NFPDF_PY/'
-URL_PDF_MADESA = '/CLIENTES/Madesa/EDI/NFPDF_PY/'
-URL_PDF_MVX = '/CLIENTES/Mvx/EDI/NFPDF_PY/'
-URL_PDF_MADEIRA = '/CLIENTES/MadeiraMadeira/EDI/NFPDF_PY/'
-URL_PDF_ENGAGE = '/CLIENTES/Engage/EDI/NFPDF_PY/'
-URL_PDF_GAZIN = '/CLIENTES/Gazin/EDI/NFPDF_PY/'
+URL_CONECTA_PDF = 'https://rpa.devinectar.com.br'
+URL_PDF_CARREFOR = '/arquivos/nf_pdf/carrefour/'
+URL_PDF_VIAVAREJO = '/arquivos/nf_pdf/viavarejo/'
+URL_PDF_KABUM = '/arquivos/nf_pdf/kabum/'
+URL_PDF_MULTILASER = '/arquivos/nf_pdf/multilaser/'
+URL_PDF_MADESA = '/arquivos/nf_pdf/madesa/'
+URL_PDF_MVX = '/arquivos/nf_pdf/mvx/'
+URL_PDF_MADEIRA = '/arquivos/nf_pdf/madeiramaderia/'
+URL_PDF_ENGAGE = '/arquivos/nf_pdf/engage/'
+URL_PDF_GAZIN = '/arquivos/nf_pdf/gazin/'
+URL_PDF_MAGAZINE = '/arquivos/nf_pdf/magazine/'
 
 
 #API CONFIGS
@@ -54,7 +51,6 @@ TOKEN_UPLOAD = 'qxYaURbavegtz2sLsZjAVxsLT-a-_i2r_BE7yxzVTP_TvjsuuYWQ9w'
 email_imap = 'imap.emailemnuvem.com.br'
 email_user = 'matheus.monte@inectar.com.br'
 email_password = '@Mm*0381'
-email_from = ['matheus.monte@inectar.com.br']
 email_from_kabum = ['felipe.moraes@kabum.com.br']
 email_from_multilaser = ['reversa.ecommerce@grupomulti.com.br']
 email_from_madesa = ['reversa@madesa.com']

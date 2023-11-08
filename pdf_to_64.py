@@ -67,7 +67,7 @@ def send_pdf_carrefour():
     for file_name in result:
         file_name = file_name[0]  #Nome do arquivo na lista
         new_file_name = file_name.split('-')[1][3:]  #Formata o nome do arquivo para ter apenas a chave NFe
-        url_pdf = config.URL_CONECTA_PDF + config.URL_PDF_CARREFOR + new_file_name + '.pdf'  #URl para baixar os PDFs
+        url_pdf = config.URL_CONECTA_PDF + config.URL_PDF_CARREFOR + file_name  #URl para baixar os PDFs
         base64_pdf = pdf_to_base64(url_pdf)
 
         #Envia a Base64 do PDF para API
@@ -390,6 +390,36 @@ def send_pdf_mvx():
                 print(f'Falha ao enviar o PDF. Código: {result.status_code}')
 
 
+def send_pdf_magazine():
+    print('---------------- Enviando Notas da MAGAZINE  ----------------')
+    
+    query = "SELECT file_name FROM python_notas_magazine WHERE ESL_Status IS NULL"
+    list_files = conexao_banco(query)
+    url_api = config.URL_BASE_API + config.URL_DANF_API
+
+    for file in list_files:
+        file = file[0]
+        file_api = file.split('.')[0]
+        url_pdf = config.URL_CONECTA_PDF + config.URL_PDF_MAGAZINE + file + '.pdf'
+        base64 = pdf_to_base64(url_pdf)
+        
+        if base64:
+            body = {
+                "key": file_api,
+                "pdf_string": base64  
+                    }
+            headers = {
+                "Authorization": "Bearer "+config.TOKEN_UPLOAD+""
+                }
+
+            result = requests.post(url_api, json= body, headers= headers)
+            if result.status_code == 200:
+                print(f"PDF em base64 enviado. Nota: {file}")
+                query2 = "UPDATE python_notas_magazine SET ESL_Status = '"+ datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "' WHERE file_name = '" + file + "';"
+                conexao_banco(query2)
+            else:
+                print(f'Falha ao enviar o PDF. Código: {result.status_code}')
+
 def execute_padf_to_64():
     send_pdf_carrefour()
     send_pdf_kabum()
@@ -400,4 +430,4 @@ def execute_padf_to_64():
     send_pdf_engage()
     send_pdf_gazin()
     send_pdf_mvx()
-send_pdf_carrefour()
+send_pdf_magazine()
