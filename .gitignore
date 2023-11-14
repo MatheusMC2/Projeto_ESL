@@ -7,3 +7,4 @@ validacao_edi.xlsx
 __pycache__/check_database.cpython-311.pyc
 __pycache__/config.cpython-311.pyc
 __pycache__/read_pdf.cpython-311.pyc
+pdf_to_64(bckp).py

@@ -23,7 +23,7 @@ PATH_DANF_MAGAZINE = '/rpa/arquivos/nf_pdf/magazine/'
 PATH_TRIMESTRAL = '/rpa/arquivos/protocolos/Ocorrencia_Trimestral/'
 
 #DATABASES CONFIGS
-DATABASE_HOST = '162.240.214.17'
+DATABASE_HOST = 'devinectar.com.br'
 DATABASE_USERNAME = 'itconecta'
 DATABASE_PASSWORD = 'C0n3ct@://iN3ct4r'
 DATABASE_DATABASE = 'ccdbloghomolog'

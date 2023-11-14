@@ -28,7 +28,7 @@ def check_db_multilaser(mydb,cursor):
     real_date = past_days.strftime("%Y-%m-%d")
 
     list_db = []
-    query = "SELECT file_name FROM python_notas_multilaser WHERE email_date BETWEEN '" + real_date + "' AND '" + data_now + "';" 
+    query = "SELECT file_name FROM python_notas_multilaser ;" 
     cursor.execute(query)
     result = cursor.fetchall()
     for file in result:
@@ -42,7 +42,7 @@ def check_db_madesa(mydb,cursor):
     real_date = past_days.strftime("%Y-%m-%d")
 
     list_db = []
-    query = "SELECT file_name FROM python_notas_madesa WHERE email_date BETWEEN '" + real_date + "' AND '" + data_now + "';" 
+    query = "SELECT file_name FROM python_notas_madesa;" 
     cursor.execute(query)
     result = cursor.fetchall()
     for file in result:
@@ -81,7 +81,7 @@ def check_db_engage(mydb,cursor):
 
 def check_db_mvx(mydb,cursor):
     list_db = []
-    query = "SELECT link_nf FROM python_notas_mvx"
+    query = "SELECT file_name FROM python_notas_mvx"
     cursor.execute(query)
     result = cursor.fetchall()
     for link in result:

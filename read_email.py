@@ -68,7 +68,7 @@ def read_email_kabum():
                             conecta_ftp.storbinary('STOR ' + path_save, file_pdf)
                             file_pdf = None #Limpa o conteudo da variavel
                             print(f'O arquivo: {anexo.filename} foi salvo')
-                            query = "INSERT INTO python_notas_kabum (file_name, upload_date, email_date) VALUES ('" + anexo.filename + "', '" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "', '" + email_client.date.strftime("%Y-%m-%d %H:%M:%S") + "');" 
+                            query = "INSERT INTO python_notas_kabum (file_name) VALUES ('" + anexo.filename + "');" 
                             cursor.execute(query)
                             mydb.commit()
                 except Exception as e:
@@ -125,7 +125,7 @@ def read_email_multilaser():
                                     conecta_ftp.storbinary('STOR ' + path_save, file_pdf)
                                     file_pdf = None #Limpa o conteudo da variavel
                                     print(f'O arquivo: {nota} foi salvo')
-                                    query = "INSERT INTO python_notas_multilaser (file_name, upload_date, email_date, zip_file) VALUES ('" + nota.name + "', '" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "', '" + email_client.date.strftime("%Y-%m-%d %H:%M:%S") + "', '"+ anexo.filename +"');" 
+                                    query = "INSERT INTO python_notas_multilaser (file_name) VALUES ('" + nota.name + "');" 
                                     cursor.execute(query)
                                     mydb.commit()
                                 
@@ -181,7 +181,7 @@ def read_email_madesa():
                                 conecta_ftp.storbinary('STOR ' + path_save, BytesIO(anexo.payload))
                                 print(f'O arquivo: {file_renamed} foi salvo')
                                 
-                                query = "INSERT INTO python_notas_madesa (file_name, file_renamed, upload_date, email_date) VALUES ('" + anexo.filename + "', '" + file_renamed + "','" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "', '" + email_client.date.strftime("%Y-%m-%d %H:%M:%S") + "');" 
+                                query = "INSERT INTO python_notas_madesa (email_arquivo, file_name) VALUES ('" + anexo.filename + "', '" + file_renamed + "');" 
                                 cursor.execute(query)
                                 mydb.commit()
                 except Exception as e:
@@ -227,7 +227,7 @@ def read_email_mvx():
 
                             for _, row in df_link.iterrows():
                                 link_pdf = row[0]
-                                if link_pdf not in list_db:
+                                if link_pdf.split('/')[4] + '.pdf' not in list_db:
                                     response = requests.get(link_pdf)
                                     file_name = link_pdf.split('/')[4] + '.pdf'
 
@@ -239,7 +239,7 @@ def read_email_mvx():
                                         conecta_ftp.storbinary('STOR ' + path_save, file_pdf)
                                         print(f'O arquivo: {file_name} foi salvo')
                                         
-                                        query = "INSERT INTO python_notas_mvx (file_name, link_nf, chave_nf, email_date, upload_date) VALUES ('" + anexo.filename + "', '" + link_pdf + "', '" + file_name + "', '" + email_client.date.strftime("%Y-%m-%d %H:%M:%S") + "', '" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "');" 
+                                        query = "INSERT INTO python_notas_mvx (email_arquivo, file_name) VALUES ('" + anexo.filename + "', '" + file_name + "');" 
                                         cursor.execute(query)
                                         mydb.commit()
                                 else:
@@ -281,7 +281,7 @@ def read_email_engage():
                             save_path = config.PATH_DANF_ENGAGE + file_name
                             conecta_ftp.storbinary('STOR ' + save_path, BytesIO(anexo.payload))
                             print(f'O arquivo: {file_name} foi salvo')
-                            query2 = "INSERT INTO python_notas_engage (email, file_name, email_date, upload_date) VALUES ('"+ anexo.filename +"', '"+ file_name +"', '"+ email.date.strftime("%Y-%m-%d %H:%M:%S") +"', '"+ datetime.now().strftime("%Y-%m-%d %H:%M:%S") +"');" 
+                            query2 = "INSERT INTO python_notas_engage (email_arquivo, file_name) VALUES ('"+ anexo.filename +"', '"+ file_name +"');" 
                             cursor.execute(query2)
                         else:
                             continue
