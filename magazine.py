@@ -96,7 +96,8 @@ login_botton.click()
 list_notas = get_chave_notas()
 
 for nota in list_notas:
-    if nota in list_db:
+    new_name =  nota + '.pdf'
+    if nota in list_db or new_name in list_db:
         print(f'{nota} já foi baixada')
         continue
     search_nota = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="batch-access-key-input"]/textarea')))
@@ -148,6 +149,8 @@ download_botton.click()
 pesquisa_botton = driver.find_element(By.XPATH, '//*[@id="tab-batch-generator"]')
 pesquisa_botton.click()
 
+time.sleep(10)
+driver.quit()
 
 inectar_ftp = ftplib.FTP(config.HOSTNAME_INECTAR, config.USERNAME_INECTAR, config.PASSWORD_INECTAR)
 

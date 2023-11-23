@@ -94,7 +94,7 @@ def send_pdf_viavarejo():
     for file_name in result:
         file_name = file_name[0]  #Nome do arquivo na lista
         new_file_name = file_name.split('_')[1]  #Formata o nome do arquivo para ter apenas a chave NFe
-        url_pdf = f'https://inectar/public_html/CLIENTES/ViaVarejo/EDI/NFPDF_PY/{file_name}'  #URl para baixar os PDFs
+        url_pdf = f'https://inectar.com.br/public_html/CLIENTES/ViaVarejo/EDI/NFPDF_PY/{file_name}'  #URl para baixar os PDFs
         base64_pdf = pdf_to_base64(url_pdf)
 
         try:
@@ -124,3 +124,4 @@ def send_pdf_viavarejo():
 def execute_carrefour_via():
     send_pdf_viavarejo()
     send_pdf_carrefour()
+send_pdf_viavarejo()
